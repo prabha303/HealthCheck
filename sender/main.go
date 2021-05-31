@@ -24,7 +24,7 @@ func Sender() {
 		if count%5 == 0 {
 			time.Sleep(30 * time.Second)
 		}
-		count ++
+		count++
 		<-ticker.C
 	}
 }
