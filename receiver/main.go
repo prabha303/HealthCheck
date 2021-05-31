@@ -10,13 +10,6 @@ import (
 	"github.com/gorilla/mux"
 )
 
-var rd []*ReceiveData
-
-type ReceiveData struct {
-	Value       string    `json:"value"`
-	LastUpdated time.Time `json:"lastUpdated"`
-}
-
 func main() {
 	go Monitor()
 	r := mux.NewRouter()
@@ -55,4 +48,11 @@ func Monitor() {
 		}
 		<-ticker.C
 	}
+}
+
+var rd []*ReceiveData
+
+type ReceiveData struct {
+	Value       string    `json:"value"`
+	LastUpdated time.Time `json:"lastUpdated"`
 }
